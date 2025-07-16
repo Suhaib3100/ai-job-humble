@@ -123,8 +123,8 @@ const OpportunitySidebar = ({
       {/* Enhanced Quick Actions Card */}
       <Card className="border-0 shadow-lg bg-gradient-to-br from-white to-gray-50">
         <CardHeader className="pb-4">
-          <CardTitle className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-blue-600" />
+          <CardTitle className="text-xl font-bold text-[#008000] flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-[#008000]" />
             Quick Actions
           </CardTitle>
         </CardHeader>
@@ -134,11 +134,11 @@ const OpportunitySidebar = ({
             disabled={actionLoading}
             className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-lg ${
               hasApplied
-                ? 'bg-green-600 hover:bg-green-700 text-white'
-                : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white'
+                ? 'bg-[#008000] hover:bg-[#006400] text-white'
+                : 'bg-[#008000] hover:bg-[#006400] text-white'
             }`}
           >
-            <ExternalLink className="w-5 h-5 mr-2" />
+            <ExternalLink className="w-5 h-5 mr-2 text-white" />
             {hasApplied 
               ? 'Applied Successfully ✓' 
               : (opportunity.source_url || opportunity.application_url 
@@ -155,11 +155,11 @@ const OpportunitySidebar = ({
               disabled={loading}
               className={`flex items-center justify-center gap-2 py-3 rounded-xl font-medium transition-all duration-300 border-2 ${
                 activeAnalysis === 'steps' 
-                  ? 'bg-blue-50 border-blue-200 text-blue-700 shadow-md' 
-                  : 'hover:bg-blue-50 hover:border-blue-200 border-gray-200'
+                  ? 'bg-[#008000]/10 border-[#008000] text-[#008000] shadow-md' 
+                  : 'hover:bg-[#008000]/10 hover:border-[#008000] border-gray-200 text-[#008000]'
               }`}
             >
-              <FileText className="w-4 h-4" />
+              <FileText className="w-4 h-4 text-[#008000]" />
               {activeAnalysis === 'steps' ? 'Hide Application Guide' : 'Get Application Guide'}
             </Button>
             
@@ -169,11 +169,11 @@ const OpportunitySidebar = ({
               disabled={loading}
               className={`flex items-center justify-center gap-2 py-3 rounded-xl font-medium transition-all duration-300 border-2 ${
                 activeAnalysis === 'chance' 
-                  ? 'bg-green-50 border-green-200 text-green-700 shadow-md' 
-                  : 'hover:bg-green-50 hover:border-green-200 border-gray-200'
+                  ? 'bg-[#008000]/10 border-[#008000] text-[#008000] shadow-md' 
+                  : 'hover:bg-[#008000]/10 hover:border-[#008000] border-gray-200 text-[#008000]'
               }`}
             >
-              <BarChart3 className="w-4 h-4" />
+              <BarChart3 className="w-4 h-4 text-[#008000]" />
               {activeAnalysis === 'chance' ? 'Hide Success Analysis' : 'Analyze Success Rate'}
             </Button>
           </div>

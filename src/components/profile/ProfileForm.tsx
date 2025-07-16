@@ -172,7 +172,7 @@ const ProfileForm = () => {
             />
           </div>
 
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full bg-[#008000] hover:bg-[#006400] text-white">
             Save Profile
           </Button>
         </form>

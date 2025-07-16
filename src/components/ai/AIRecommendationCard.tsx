@@ -78,7 +78,7 @@ export const AIRecommendationCard: React.FC<AIRecommendationCardProps> = ({
               </Badge>
             )}
             <Badge 
-              className={`${getMatchScoreColor(recommendation.match_score)} text-white`}
+              className={`bg-[#008000] text-white transition-colors duration-200 hover:bg-[#006400] cursor-pointer`}
             >
               {Math.round(recommendation.match_score * 100)}% {getMatchScoreText(recommendation.match_score)}
             </Badge>
@@ -133,16 +133,17 @@ export const AIRecommendationCard: React.FC<AIRecommendationCardProps> = ({
         <div className="flex gap-2">
           <Button 
             onClick={handleViewOpportunity}
-            className="flex-1"
+            className="flex-1 bg-[#008000] hover:bg-[#006400] text-white"
             size="sm"
           >
-            <Eye className="w-4 h-4 mr-2" />
+            <Eye className="w-4 h-4 mr-2 text-white" />
             View Details
           </Button>
           <Button 
             variant="outline" 
             size="sm"
             onClick={handleViewOpportunity}
+            className="border-[#008000] text-[#008000] hover:bg-[#008000]/10 hover:text-white hover:border-[#006400]"
           >
             <ExternalLink className="w-4 h-4" />
           </Button>

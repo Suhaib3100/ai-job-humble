@@ -143,9 +143,9 @@ const CreateOpportunity = () => {
               <CardContent className="pt-4">
                 <Button
                   onClick={() => navigate('/dashboard')}
-                  className="w-full bg-gradient-to-r from-[#17cfcf] to-[#17cfcf]/90 hover:from-[#17cfcf]/90 hover:to-[#17cfcf]/80 text-white py-3 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="w-full bg-[#008000] hover:bg-[#006400] text-white py-3 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
-                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  <ArrowLeft className="w-4 h-4 mr-2 text-white" />
                   Back to Dashboard
                 </Button>
               </CardContent>
@@ -200,9 +200,9 @@ const CreateOpportunity = () => {
             <Button
               variant="outline"
               onClick={handleCancel}
-              className="border-2 border-[#e6f5ec]/50 hover:border-[#17cfcf] hover:bg-[#17cfcf]/5 text-[#384040] rounded-xl px-6 py-3 font-medium transition-all duration-300"
+              className="border-2 border-[#008000] hover:border-[#006400] bg-[#008000] hover:bg-[#006400] text-white rounded-xl px-6 py-3 font-medium transition-all duration-300"
             >
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <ArrowLeft className="w-4 h-4 mr-2 text-white" />
               Back to Dashboard
             </Button>
           </div>
@@ -220,7 +220,7 @@ const CreateOpportunity = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-[#17cfcf] rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-[#008000] rounded-full flex items-center justify-center">
                       <FileText className="w-4 h-4 text-white" />
                     </div>
                     <div>
@@ -233,7 +233,7 @@ const CreateOpportunity = () => {
                   
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 bg-[#e6f5ec] rounded-full flex items-center justify-center">
-                      <Clock className="w-4 h-4 text-[#384040]" />
+                      <Clock className="w-4 h-4 text-[#008000]" />
                     </div>
                     <div>
                       <p className="font-medium text-[#384040]">2. Review</p>
@@ -245,7 +245,7 @@ const CreateOpportunity = () => {
                   
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 bg-[#e6f5ec] rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-4 h-4 text-[#384040]" />
+                      <CheckCircle className="w-4 h-4 text-[#008000]" />
                     </div>
                     <div>
                       <p className="font-medium text-[#384040]">3. Publish</p>
@@ -256,9 +256,9 @@ const CreateOpportunity = () => {
 
                 <Badge 
                   variant="secondary" 
-                  className="bg-[#e6f5ec]/50 text-[#384040] border-[#e6f5ec] px-4 py-2 rounded-xl"
+                  className="bg-[#008000]/20 text-[#008000] border-[#008000] px-4 py-2 rounded-xl"
                 >
-                  <Lightbulb className="w-4 h-4 mr-2" />
+                  <Lightbulb className="w-4 h-4 mr-2 text-[#008000]" />
                   User Submission
                 </Badge>
               </div>
@@ -290,8 +290,8 @@ const CreateOpportunity = () => {
         >
           <Card className="bg-gradient-to-r from-[#e6f5ec]/20 to-white/40 backdrop-blur-sm border-[#e6f5ec]/30 shadow-lg rounded-3xl">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-[#384040]">
-                <Lightbulb className="w-5 h-5 text-[#17cfcf]" />
+              <CardTitle className="flex items-center gap-2 text-[#008000]">
+                <Lightbulb className="w-5 h-5 text-[#008000]" />
                 Tips for Better Submissions
               </CardTitle>
             </CardHeader>
@@ -299,21 +299,21 @@ const CreateOpportunity = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-[#17cfcf] rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-[#008000] rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-sm text-gray-700">Use clear, descriptive titles that accurately represent the opportunity</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-[#17cfcf] rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-[#008000] rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-sm text-gray-700">Provide detailed descriptions including key responsibilities and requirements</p>
                   </div>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-[#17cfcf] rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-[#008000] rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-sm text-gray-700">Include accurate application deadlines and contact information</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-[#17cfcf] rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-[#008000] rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-sm text-gray-700">Select the most appropriate category for better discoverability</p>
                   </div>
                 </div>

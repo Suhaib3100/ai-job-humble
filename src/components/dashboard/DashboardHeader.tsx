@@ -58,11 +58,9 @@ const DashboardHeader = ({ user, isAdmin, adminCheckComplete, onResultSelect, on
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#008000] rounded-xl flex items-center justify-center">
                 <span className="text-white font-bold text-sm sm:text-lg">O</span>
               </div>
-              <div className="hidden sm:block">
-                <h1 className="text-xl font-bold text-[#008000] bg-clip-text text-transparent">
-                  PrimeChances
-                </h1>
-                <p className="text-xs text-gray-500">Find your next opportunity</p>
+              <div className="flex flex-col justify-center">
+                <span className="text-xl font-bold text-[#008000]">PrimeChances</span>
+                <span className="text-xs text-gray-500">Find your next opportunity</span>
               </div>
             </Link>
           </motion.div>

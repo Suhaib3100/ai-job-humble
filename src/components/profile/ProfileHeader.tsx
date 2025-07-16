@@ -28,10 +28,10 @@ const ProfileHeader = () => {
               onClick={() => navigate('/dashboard')}
               className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
             >
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">OA</span>
+              <div className="w-8 h-8 bg-[#008000] rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">PC</span>
               </div>
-              <span className="text-xl font-bold text-gray-900 hidden sm:block">OppsAI</span>
+              <span className="text-xl font-bold text-[#008000] hidden sm:block">PrimeChances</span>
             </button>
           </div>
 

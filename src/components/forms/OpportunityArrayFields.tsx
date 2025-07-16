@@ -69,7 +69,7 @@ const OpportunityArrayFields = ({
             placeholder="Add a requirement"
             onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addRequirement())}
           />
-          <Button type="button" onClick={addRequirement} size="sm">
+          <Button type="button" onClick={addRequirement} size="sm" className="bg-[#008000] hover:bg-[#006400] text-white">
             Add
           </Button>
         </div>
@@ -96,7 +96,7 @@ const OpportunityArrayFields = ({
             placeholder="Add a benefit"
             onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addBenefit())}
           />
-          <Button type="button" onClick={addBenefit} size="sm">
+          <Button type="button" onClick={addBenefit} size="sm" className="bg-[#008000] hover:bg-[#006400] text-white">
             Add
           </Button>
         </div>
@@ -123,7 +123,7 @@ const OpportunityArrayFields = ({
             placeholder="Add a tag"
             onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addTag())}
           />
-          <Button type="button" onClick={addTag} size="sm">
+          <Button type="button" onClick={addTag} size="sm" className="bg-[#008000] hover:bg-[#006400] text-white">
             Add
           </Button>
         </div>

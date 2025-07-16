@@ -61,7 +61,7 @@ const AIAssistant = () => {
       <div className="min-h-screen flex flex-col">
         <ProfileHeader />
         <div className="flex-1 flex items-center justify-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#17cfcf]"></div>
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#008000]"></div>
         </div>
       </div>
     );
@@ -79,7 +79,7 @@ const AIAssistant = () => {
         >
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              <h1 className="text-3xl font-bold text-[#008000] mb-2">
                 AI Assistant
               </h1>
               <p className="text-gray-600">
@@ -87,7 +87,7 @@ const AIAssistant = () => {
               </p>
             </div>
             <div className="flex items-center space-x-2">
-              <Badge variant={tier === 'pro' ? 'default' : 'secondary'} className={tier === 'pro' ? 'bg-amber-500' : ''}>
+              <Badge variant={tier === 'pro' ? 'default' : 'secondary'} className={tier === 'pro' ? 'bg-amber-500' : 'bg-[#008000]/20 text-[#008000] border-[#008000]'}>
                 {tier === 'pro' ? (
                   <>
                     <Crown className="h-3 w-3 mr-1" />
@@ -103,21 +103,21 @@ const AIAssistant = () => {
           <Tabs defaultValue="recommendations" className="space-y-6">
             <TabsList className="grid w-full grid-cols-4">
               <TabsTrigger value="recommendations">
-                <Brain className="h-4 w-4 mr-2" />
-                Recommendations
+                <Brain className="h-4 w-4 mr-2 text-[#008000]" />
+                <span className="text-[#008000]">Recommendations</span>
               </TabsTrigger>
               <TabsTrigger value="chat">
-                <MessageSquare className="h-4 w-4 mr-2" />
-                Chat
+                <MessageSquare className="h-4 w-4 mr-2 text-[#008000]" />
+                <span className="text-[#008000]">Chat</span>
               </TabsTrigger>
               <TabsTrigger value="documents" disabled={!hasProAccess()}>
-                <FileText className="h-4 w-4 mr-2" />
-                Documents
+                <FileText className="h-4 w-4 mr-2 text-[#008000]" />
+                <span className="text-[#008000]">Documents</span>
                 {!hasProAccess() && <Crown className="h-3 w-3 ml-1 text-amber-500" />}
               </TabsTrigger>
               <TabsTrigger value="voice" disabled={!hasProAccess()}>
-                <Mic className="h-4 w-4 mr-2" />
-                Voice
+                <Mic className="h-4 w-4 mr-2 text-[#008000]" />
+                <span className="text-[#008000]">Voice</span>
                 {!hasProAccess() && <Crown className="h-3 w-3 ml-1 text-amber-500" />}
               </TabsTrigger>
             </TabsList>
@@ -130,8 +130,8 @@ const AIAssistant = () => {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <MessageSquare className="h-5 w-5 mr-2" />
-                    AI Chat Assistant
+                    <MessageSquare className="h-5 w-5 mr-2 text-[#008000]" />
+                    <span className="text-[#008000]">AI Chat Assistant</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -145,22 +145,22 @@ const AIAssistant = () => {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center">
-                      <FileText className="h-5 w-5 mr-2" />
-                      Document Generator
+                      <FileText className="h-5 w-5 mr-2 text-[#008000]" />
+                      <span className="text-[#008000]">Document Generator</span>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="text-center space-y-4">
-                      <Sparkles className="h-16 w-16 text-[#17cfcf] mx-auto" />
+                      <Sparkles className="h-16 w-16 text-[#008000] mx-auto" />
                       <h3 className="text-xl font-semibold">Generate Professional Documents</h3>
                       <p className="text-gray-600 max-w-md mx-auto">
                         Create tailored CVs, statements of purpose, and cover letters using AI
                       </p>
                       <Button 
                         onClick={() => setIsDocumentModalOpen(true)}
-                        className="bg-[#17cfcf] hover:bg-[#15b8b8]"
+                        className="bg-[#008000] hover:bg-[#006400] text-white"
                       >
-                        <FileText className="h-4 w-4 mr-2" />
+                        <FileText className="h-4 w-4 mr-2 text-white" />
                         Start Generating
                       </Button>
                     </div>
@@ -181,8 +181,8 @@ const AIAssistant = () => {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center">
-                      <Mic className="h-5 w-5 mr-2" />
-                      Voice Assistant
+                      <Mic className="h-5 w-5 mr-2 text-[#008000]" />
+                      <span className="text-[#008000]">Voice Assistant</span>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>

@@ -30,8 +30,8 @@ export const AIRecommendationsDashboard: React.FC = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-            <Sparkles className="w-6 h-6 text-blue-600" />
+          <h2 className="text-2xl font-bold text-[#008000] flex items-center gap-2">
+            <Sparkles className="w-6 h-6 text-[#008000]" />
             AI Recommendations
           </h2>
           <p className="text-gray-600 mt-1">
@@ -39,12 +39,21 @@ export const AIRecommendationsDashboard: React.FC = () => {
           </p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline" onClick={refetch} disabled={loading}>
-            <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+          <Button 
+            variant="outline" 
+            onClick={refetch} 
+            disabled={loading}
+            className="border-[#008000] text-[#008000] hover:bg-[#008000]/10 hover:text-white hover:border-[#006400]"
+          >
+            <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''} text-[#008000]`} />
             Refresh
           </Button>
-          <Button onClick={generateRecommendations} disabled={loading}>
-            <Sparkles className="w-4 h-4 mr-2" />
+          <Button 
+            onClick={generateRecommendations} 
+            disabled={loading}
+            className="bg-[#008000] hover:bg-[#006400] text-white"
+          >
+            <Sparkles className="w-4 h-4 mr-2 text-white" />
             Generate New
           </Button>
         </div>
@@ -55,8 +64,8 @@ export const AIRecommendationsDashboard: React.FC = () => {
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                <Target className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 bg-[#008000]/10 rounded-lg flex items-center justify-center">
+                <Target className="w-5 h-5 text-[#008000]" />
               </div>
               <div>
                 <p className="text-sm text-gray-600">New Recommendations</p>
@@ -69,8 +78,8 @@ export const AIRecommendationsDashboard: React.FC = () => {
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-green-600" />
+              <div className="w-10 h-10 bg-[#008000]/10 rounded-lg flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-[#008000]" />
               </div>
               <div>
                 <p className="text-sm text-gray-600">High Matches</p>
@@ -83,8 +92,8 @@ export const AIRecommendationsDashboard: React.FC = () => {
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-purple-600" />
+              <div className="w-10 h-10 bg-[#008000]/10 rounded-lg flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-[#008000]" />
               </div>
               <div>
                 <p className="text-sm text-gray-600">Average Match</p>
@@ -110,8 +119,12 @@ export const AIRecommendationsDashboard: React.FC = () => {
             <p className="text-gray-600 mb-4">
               There are currently no opportunities in our database. Check back later for new postings.
             </p>
-            <Button onClick={generateRecommendations} disabled={loading}>
-              <Sparkles className="w-4 h-4 mr-2" />
+            <Button 
+              onClick={generateRecommendations} 
+              disabled={loading}
+              className="bg-[#008000] hover:bg-[#006400] text-white"
+            >
+              <Sparkles className="w-4 h-4 mr-2 text-white" />
               Refresh
             </Button>
           </CardContent>
@@ -130,7 +143,7 @@ export const AIRecommendationsDashboard: React.FC = () => {
 
       {/* Show loading indicator when refreshing */}
       {loading && recommendations.length > 0 && (
-        <div className="fixed bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+        <div className="fixed bottom-4 right-4 bg-[#008000] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
           <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full"></div>
           <span>Updating recommendations...</span>
         </div>

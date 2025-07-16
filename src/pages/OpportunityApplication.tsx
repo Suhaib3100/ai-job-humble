@@ -141,7 +141,7 @@ const OpportunityApplication = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-[#e6f5ec]/20 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#17cfcf]"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#008000]"></div>
       </div>
     );
   }
@@ -150,9 +150,9 @@ const OpportunityApplication = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-[#e6f5ec]/20 flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Opportunity not found</h2>
-          <Button onClick={() => navigate('/dashboard')}>
-            <ArrowLeft className="w-4 h-4 mr-2" />
+          <h2 className="text-2xl font-bold text-[#008000] mb-4">Opportunity not found</h2>
+          <Button onClick={() => navigate('/dashboard')} className="bg-[#008000] hover:bg-[#006400] text-white">
+            <ArrowLeft className="w-4 h-4 mr-2 text-white" />
             Back to Dashboard
           </Button>
         </div>
@@ -171,9 +171,9 @@ const OpportunityApplication = () => {
           <Button
             variant="ghost"
             onClick={() => navigate('/dashboard')}
-            className="mb-6 text-[#384040] hover:text-[#17cfcf]"
+            className="mb-6 text-[#008000] hover:text-[#006400]"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
+            <ArrowLeft className="w-4 h-4 mr-2 text-[#008000]" />
             Back to Dashboard
           </Button>
 
