@@ -153,21 +153,23 @@ const UserManagement = () => {
         {/* Export Actions */}
         <div className="flex gap-2">
           <Button
+            className="bg-[#008000] hover:bg-[#218c1b] text-white"
             variant="outline"
             size="sm"
             onClick={copyAllEmails}
             disabled={filteredUsers.length === 0}
           >
-            <Mail className="w-4 h-4 mr-2" />
+            <Mail className="w-4 h-4 mr-2 text-[#008000]" />
             Copy All Emails
           </Button>
           <Button
+            className="bg-[#008000] hover:bg-[#218c1b] text-white"
             variant="outline"
             size="sm"
             onClick={exportUserEmails}
             disabled={filteredUsers.length === 0}
           >
-            <Download className="w-4 h-4 mr-2" />
+            <Download className="w-4 h-4 mr-2 text-[#008000]" />
             Export Emails
           </Button>
         </div>
@@ -189,21 +191,21 @@ const UserManagement = () => {
               <div key={user.user_id} className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 transition-colors">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
-                    <Users className="w-5 h-5 text-gray-500" />
+                    <Users className="w-5 h-5 text-[#008000]" />
                   </div>
                   <div>
                     <p className="font-medium">{user.full_name || 'Unnamed User'}</p>
                     <div className="flex items-center gap-4 text-sm text-gray-500">
                       <span className="flex items-center gap-1">
-                        <Mail className="w-3 h-3" />
+                        <Mail className="w-3 h-3 text-[#008000]" />
                         {user.email}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Crown className="w-3 h-3" />
+                        <Crown className="w-3 h-3 text-[#008000]" />
                         {user.subscription_tier}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
+                        <Calendar className="w-3 h-3 text-[#008000]" />
                         Joined {new Date(user.created_at).toLocaleDateString()}
                       </span>
                     </div>
@@ -214,6 +216,7 @@ const UserManagement = () => {
                     {user.is_active ? 'Active' : 'Inactive'}
                   </Badge>
                   <Button
+                    className="bg-[#008000] hover:bg-[#218c1b] text-white"
                     variant="outline"
                     size="sm"
                     onClick={() => {
@@ -233,4 +236,4 @@ const UserManagement = () => {
   );
 };
 
-export default UserManagement; 
+export default UserManagement;

@@ -6,8 +6,8 @@ const AdminHeader = () => {
         <h1 className="text-3xl font-bold text-gray-900">Admin</h1>
         <p className="text-gray-600">Comprehensive platform management and analytics</p>
       </div>
-      <Button className="bg-blue-600 hover:bg-blue-700">
-        <Plus className="w-4 h-4 mr-2" />
+      <Button className="bg-[#008000] hover:bg-[#218c1b] text-white">
+        <Plus className="w-4 h-4 mr-2 text-white" />
         Add Opportunity
       </Button>
     </div>;

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -248,8 +247,13 @@ const EnhancedSubmissionManager = () => {
                 <div className="flex items-center gap-2">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button variant="outline" size="sm" onClick={() => setSelectedSubmission(submission)}>
-                        <Eye className="w-4 h-4 mr-2" />
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => setSelectedSubmission(submission)}
+                        className="bg-[#008000] hover:bg-[#218c1b] text-white transition-colors duration-200"
+                      >
+                        <Eye className="w-4 h-4 mr-2 text-[#008000]" />
                         View Details
                       </Button>
                     </DialogTrigger>
@@ -318,8 +322,8 @@ const EnhancedSubmissionManager = () => {
                               <h3 className="font-semibold mb-2">Tags</h3>
                               <div className="flex flex-wrap gap-2">
                                 {selectedSubmission.tags.map((tag, index) => (
-                                  <Badge key={index} variant="outline">
-                                    <Tag className="w-3 h-3 mr-1" />
+                                  <Badge key={index} variant="outline" className="text-[#008000] border-[#008000]">
+                                    <Tag className="w-3 h-3 mr-1 text-[#008000]" />
                                     {tag}
                                   </Badge>
                                 ))}
@@ -347,6 +351,7 @@ const EnhancedSubmissionManager = () => {
                                 <Button
                                   onClick={() => updateSubmissionStatus(selectedSubmission.id, 'approved', reviewNotes)}
                                   disabled={processing}
+                                  className="bg-[#008000] hover:bg-[#218c1b] text-white transition-colors duration-200"
                                 >
                                   <Check className="w-4 h-4 mr-2" />
                                   Approve
@@ -355,6 +360,7 @@ const EnhancedSubmissionManager = () => {
                                   variant="destructive"
                                   onClick={() => updateSubmissionStatus(selectedSubmission.id, 'rejected', reviewNotes)}
                                   disabled={processing}
+                                  className="bg-red-600 hover:bg-red-700 text-white transition-colors duration-200"
                                 >
                                   <X className="w-4 h-4 mr-2" />
                                   Reject
@@ -373,6 +379,7 @@ const EnhancedSubmissionManager = () => {
                         size="sm"
                         onClick={() => updateSubmissionStatus(submission.id, 'approved')}
                         disabled={processing}
+                        className="bg-[#008000] hover:bg-[#218c1b] text-white transition-colors duration-200"
                       >
                         <Check className="w-4 h-4 mr-2" />
                         Approve
@@ -382,6 +389,7 @@ const EnhancedSubmissionManager = () => {
                         size="sm"
                         onClick={() => updateSubmissionStatus(submission.id, 'rejected')}
                         disabled={processing}
+                        className="bg-red-600 hover:bg-red-700 text-white transition-colors duration-200"
                       >
                         <X className="w-4 h-4 mr-2" />
                         Reject

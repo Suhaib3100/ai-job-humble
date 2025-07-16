@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -138,7 +137,7 @@ const SavedOpportunitiesManager = () => {
                     <h3 className="font-semibold">{opportunity.title}</h3>
                     <p className="text-sm text-gray-600">{opportunity.organization}</p>
                     <div className="flex items-center gap-4 mt-2">
-                      <Badge variant="outline">Draft</Badge>
+                      <Badge className="text-[#008000] border-[#008000]">Draft</Badge>
                       <span className="text-sm text-gray-500">
                         Created: {new Date(opportunity.created_at).toLocaleDateString()}
                       </span>
@@ -148,28 +147,32 @@ const SavedOpportunitiesManager = () => {
                     <Button 
                       variant="outline" 
                       size="sm"
+                      className="bg-[#008000] hover:bg-[#218c1b] text-white"
                       onClick={() => setViewingOpportunity(opportunity)}
                     >
-                      <Eye className="h-4 w-4" />
+                      <Eye className="h-4 w-4 text-[#008000]" />
                     </Button>
                     <Button 
                       variant="outline" 
                       size="sm"
+                      className="bg-[#008000] hover:bg-[#218c1b] text-white"
                       onClick={() => setEditingOpportunity(opportunity)}
                     >
-                      <Edit className="h-4 w-4" />
+                      <Edit className="h-4 w-4 text-[#008000]" />
                     </Button>
                     <Button 
                       variant="default" 
                       size="sm"
+                      className="bg-[#008000] hover:bg-[#218c1b] text-white"
                       onClick={() => publishOpportunity(opportunity.id)}
                     >
-                      <Send className="h-4 w-4 mr-1" />
+                      <Send className="h-4 w-4 mr-1 text-[#008000]" />
                       Publish
                     </Button>
                     <Button 
                       variant="destructive" 
                       size="sm"
+                      className="bg-[#ff0000] hover:bg-[#cc0000] text-white"
                       onClick={() => deleteOpportunity(opportunity.id)}
                     >
                       <Trash2 className="h-4 w-4" />

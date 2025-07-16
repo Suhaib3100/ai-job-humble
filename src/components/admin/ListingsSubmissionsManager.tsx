@@ -326,12 +326,12 @@ const ListingsSubmissionsManager = () => {
                             <div className="font-medium text-gray-900">{opportunity.title}</div>
                             <div className="flex items-center gap-4 text-sm text-gray-500 mt-1">
                               <span className="flex items-center gap-1">
-                                <Building className="h-3 w-3" />
+                                <Building className="h-3 w-3 text-[#008000]" />
                                 {opportunity.organization}
                               </span>
                               {opportunity.location && (
                                 <span className="flex items-center gap-1">
-                                  <MapPin className="h-3 w-3" />
+                                  <MapPin className="h-3 w-3 text-[#008000]" />
                                   {opportunity.location}
                                 </span>
                               )}
@@ -367,7 +367,7 @@ const ListingsSubmissionsManager = () => {
                             {opportunity.application_url && (
                               <Button variant="ghost" size="sm" asChild>
                                 <a href={opportunity.application_url} target="_blank" rel="noopener noreferrer">
-                                  <ExternalLink className="h-4 w-4" />
+                                  <ExternalLink className="h-4 w-4 text-[#008000]" />
                                 </a>
                               </Button>
                             )}
@@ -375,6 +375,7 @@ const ListingsSubmissionsManager = () => {
                               variant="ghost" 
                               size="sm"
                               onClick={() => togglePublishStatus(opportunity.id, opportunity.is_published)}
+                              className="bg-[#008000] hover:bg-[#218c1b] text-white"
                             >
                               {opportunity.is_published ? <XCircle className="h-4 w-4" /> : <CheckCircle className="h-4 w-4" />}
                             </Button>
@@ -382,6 +383,7 @@ const ListingsSubmissionsManager = () => {
                               variant="ghost" 
                               size="sm"
                               onClick={() => deleteOpportunity(opportunity.id)}
+                              className="bg-[#008000] hover:bg-[#218c1b] text-white"
                             >
                               <Trash2 className="h-4 w-4" />
                             </Button>
@@ -422,12 +424,12 @@ const ListingsSubmissionsManager = () => {
                             <div className="font-medium text-gray-900">{submission.title}</div>
                             <div className="flex items-center gap-4 text-sm text-gray-500 mt-1">
                               <span className="flex items-center gap-1">
-                                <Building className="h-3 w-3" />
+                                <Building className="h-3 w-3 text-[#008000]" />
                                 {submission.organization}
                               </span>
                               {submission.location && (
                                 <span className="flex items-center gap-1">
-                                  <MapPin className="h-3 w-3" />
+                                  <MapPin className="h-3 w-3 text-[#008000]" />
                                   {submission.location}
                                 </span>
                               )}
@@ -475,6 +477,7 @@ const ListingsSubmissionsManager = () => {
                               size="sm"
                               onClick={() => updateSubmissionStatus(submission.id, 'approved')}
                               disabled={submission.status === 'approved'}
+                              className="bg-[#008000] hover:bg-[#218c1b] text-white"
                             >
                               <CheckCircle className="h-4 w-4 text-green-600" />
                             </Button>
@@ -483,6 +486,7 @@ const ListingsSubmissionsManager = () => {
                               size="sm"
                               onClick={() => updateSubmissionStatus(submission.id, 'rejected')}
                               disabled={submission.status === 'rejected'}
+                              className="bg-[#008000] hover:bg-[#218c1b] text-white"
                             >
                               <XCircle className="h-4 w-4 text-red-600" />
                             </Button>

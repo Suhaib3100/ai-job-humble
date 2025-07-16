@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -179,12 +178,12 @@ const ScrapingDashboard = () => {
         <Button
           onClick={() => triggerScraping()}
           disabled={scraping}
-          className="bg-blue-600 hover:bg-blue-700"
+          className="bg-[#008000] hover:bg-[#218c1b] text-white transition-colors duration-200"
         >
           {scraping ? (
-            <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
+            <RefreshCw className="w-4 h-4 mr-2 animate-spin text-[#008000]" />
           ) : (
-            <Play className="w-4 h-4 mr-2" />
+            <Play className="w-4 h-4 mr-2 text-[#008000]" />
           )}
           {scraping ? 'Scraping...' : 'Run All Scrapers'}
         </Button>
@@ -280,13 +279,17 @@ const ScrapingDashboard = () => {
                         size="sm"
                         onClick={() => triggerScraping(source.id)}
                         disabled={scraping}
+                        className="bg-white hover:bg-[#008000] text-[#008000] border border-[#008000] transition-colors duration-200"
                       >
-                        <Play className="w-4 h-4" />
+                        <Play className="w-4 h-4 text-[#008000]" />
                       </Button>
                       <Button
                         variant="outline"
                         size="sm"
                         onClick={() => toggleSource(source.id, source.is_active)}
+                        className={`
+                          bg-white text-[#008000] border border-[#008000] hover:bg-[#008000] hover:text-white transition-colors duration-200
+                        `}
                       >
                         {source.is_active ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
                       </Button>

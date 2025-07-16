@@ -42,7 +42,7 @@ const AdminLayout = ({ children, activeSection, onSectionChange }: AdminLayoutPr
             <div className="flex items-center gap-2 md:gap-4">
               <SidebarTrigger className="p-2 rounded-xl hover:bg-[#e6f5ec]/30 transition-all duration-200 md:hidden" />
               <motion.div 
-                className="text-lg md:text-2xl font-bold bg-gradient-to-r from-[#384040] to-[#17cfcf] bg-clip-text text-transparent"
+                className="text-lg md:text-2xl font-bold text-black"
                 whileHover={{ scale: 1.05 }}
               >
                 <span className="hidden md:inline">Admin Dashboard</span>
@@ -60,7 +60,7 @@ const AdminLayout = ({ children, activeSection, onSectionChange }: AdminLayoutPr
                 <input
                   type="text"
                   placeholder="Search..."
-                  className="pl-10 pr-4 py-2 bg-[#e6f5ec]/20 border border-[#e6f5ec]/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#17cfcf]/50 focus:border-[#17cfcf] transition-all duration-200 w-48"
+                  className="pl-10 pr-4 py-2 bg-[#e6f5ec]/20 border border-[#e6f5ec]/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#008000]/50 focus:border-[#008000] transition-all duration-200 w-48"
                 />
               </motion.div>
 
@@ -74,8 +74,8 @@ const AdminLayout = ({ children, activeSection, onSectionChange }: AdminLayoutPr
                   size="icon"
                   className="relative rounded-xl hover:bg-[#e6f5ec]/30 transition-all duration-200 w-8 h-8 md:w-10 md:h-10"
                 >
-                  <Bell className="h-4 w-4 md:h-5 md:w-5 text-[#384040]" />
-                  <span className="absolute -top-1 -right-1 h-2 w-2 md:h-3 md:w-3 bg-[#17cfcf] rounded-full"></span>
+                  <Bell className="h-4 w-4 md:h-5 md:w-5 text-[#008000]" />
+                  <span className="absolute -top-1 -right-1 h-2 w-2 md:h-3 md:w-3 bg-[#008000] rounded-full"></span>
                 </Button>
               </motion.div>
 
@@ -87,7 +87,7 @@ const AdminLayout = ({ children, activeSection, onSectionChange }: AdminLayoutPr
                 <Button 
                   variant="outline" 
                   onClick={handleSignOut}
-                  className="border-2 border-[#e6f5ec] hover:border-[#17cfcf] hover:bg-[#17cfcf] hover:text-white rounded-xl px-3 md:px-6 py-1 md:py-2 transition-all duration-300 text-sm md:text-base"
+                  className="border-2 border-[#e6f5ec] hover:border-[#008000] hover:bg-[#008000] hover:text-white rounded-xl px-3 md:px-6 py-1 md:py-2 transition-all duration-300 text-sm md:text-base"
                 >
                   <LogOut className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
                   <span className="hidden md:inline">Sign Out</span>

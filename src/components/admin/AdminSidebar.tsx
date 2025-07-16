@@ -70,7 +70,7 @@ const AdminSidebar = ({ activeSection, onSectionChange }: AdminSidebarProps) => 
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="w-10 h-10 bg-gradient-to-br from-[#17cfcf] to-[#384040] rounded-xl flex items-center justify-center">
+          <div className="w-10 h-10 bg-[#008000] rounded-xl flex items-center justify-center">
             <LayoutDashboard className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -93,17 +93,13 @@ const AdminSidebar = ({ activeSection, onSectionChange }: AdminSidebarProps) => 
                   <SidebarMenuItem>
                     <SidebarMenuButton
                       onClick={() => onSectionChange(item.id)}
-                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 hover:bg-[#e6f5ec]/30 group ${
+                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 hover:bg-[#e6f5ec] group ${
                         activeSection === item.id
                           ? 'bg-gradient-to-r from-[#17cfcf]/10 to-[#384040]/10 border-l-4 border-[#17cfcf] text-[#384040] font-semibold'
                           : 'text-gray-600 hover:text-[#384040]'
                       }`}
                     >
-                      <item.icon className={`w-5 h-5 transition-all duration-200 ${
-                        activeSection === item.id 
-                          ? 'text-[#17cfcf]' 
-                          : 'text-gray-500 group-hover:text-[#17cfcf]'
-                      }`} />
+                      <item.icon className={`w-5 h-5 text-[#008000] group-hover:text-[#218c1b] transition-colors duration-200`} />
                       <span className="text-sm font-medium">{item.label}</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
@@ -107,11 +106,11 @@ const FeatureTogglePanel = () => {
   const getFeatureIcon = (featureKey: string) => {
     switch (featureKey) {
       case 'user_opportunity_posts':
-        return <FileText className="w-4 h-4 text-blue-600" />;
+        return <FileText className="w-4 h-4 text-[#008000]" />;
       case 'user_registration':
-        return <Users className="w-4 h-4 text-green-600" />;
+        return <Users className="w-4 h-4 text-[#008000]" />;
       default:
-        return <Settings className="w-4 h-4 text-gray-600" />;
+        return <Settings className="w-4 h-4 text-[#008000]" />;
     }
   };
 
@@ -129,6 +128,7 @@ const FeatureTogglePanel = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Settings className="w-5 h-5" />
+          <Settings className="w-5 h-5 text-[#008000]" />
             Feature Controls
           </CardTitle>
         </CardHeader>
@@ -154,6 +154,7 @@ const FeatureTogglePanel = () => {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Settings className="w-5 h-5" />
+            <Settings className="w-5 h-5 text-[#008000]" />
           Feature Controls
         </CardTitle>
       </CardHeader>
@@ -178,6 +179,7 @@ const FeatureTogglePanel = () => {
               <Switch
                 checked={getFeatureValue(feature)}
                 onCheckedChange={(checked) => handleToggleChange(feature.feature_key, checked)}
+                className={getFeatureValue(feature) ? 'data-[state=checked]:bg-[#008000] data-[state=checked]:border-[#008000]' : ''}
               />
             </div>
           ))}
@@ -185,12 +187,19 @@ const FeatureTogglePanel = () => {
 
         {hasChanges && (
           <div className="flex items-center gap-2 pt-4 border-t">
-            <Button onClick={saveChanges} disabled={saving}>
-              <Save className="w-4 h-4 mr-2" />
+            <Button
+              className="bg-[#008000] hover:bg-[#218c1b] text-white transition-colors duration-200"
+              onClick={saveChanges} disabled={saving}
+            >
+              <Save className="w-4 h-4 mr-2 text-white" />
               {saving ? 'Saving...' : 'Save Changes'}
             </Button>
-            <Button variant="outline" onClick={resetChanges}>
-              <RotateCcw className="w-4 h-4 mr-2" />
+            <Button
+              variant="outline"
+              className="text-[#008000] border-[#008000] hover:bg-[#e6f5ec] transition-colors duration-200"
+              onClick={resetChanges}
+            >
+              <RotateCcw className="w-4 h-4 mr-2 text-[#008000]" />
               Reset
             </Button>
           </div>

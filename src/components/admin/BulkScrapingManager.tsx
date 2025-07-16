@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -222,8 +221,8 @@ const BulkScrapingManager = () => {
               <Globe className="w-5 h-5" />
               Scraping Configurations
             </CardTitle>
-            <Button onClick={() => setShowCreateForm(true)}>
-              <Plus className="w-4 h-4 mr-2" />
+            <Button onClick={() => setShowCreateForm(true)} className="bg-[#008000] hover:bg-[#218c1b] text-white transition-colors duration-200">
+              <Plus className="w-4 h-4 mr-2 text-white" />
               Add Configuration
             </Button>
           </div>
@@ -339,7 +338,7 @@ const BulkScrapingManager = () => {
                   </div>
                 </div>
 
-                <Button onClick={addWebsite} size="sm">
+                <Button onClick={addWebsite} size="sm" className="bg-[#008000] hover:bg-[#218c1b] text-white transition-colors duration-200">
                   <Plus className="w-4 h-4 mr-2" />
                   Add Website
                 </Button>
@@ -359,6 +358,7 @@ const BulkScrapingManager = () => {
                         variant="destructive"
                         size="sm"
                         onClick={() => removeWebsite(index)}
+                        className="bg-red-600 hover:bg-red-700 text-white transition-colors duration-200"
                       >
                         <Trash2 className="w-4 h-4" />
                       </Button>
@@ -371,7 +371,7 @@ const BulkScrapingManager = () => {
                 <Button variant="outline" onClick={() => setShowCreateForm(false)}>
                   Cancel
                 </Button>
-                <Button onClick={saveConfig}>
+                <Button onClick={saveConfig} className="bg-[#008000] hover:bg-[#218c1b] text-white transition-colors duration-200">
                   Save Configuration
                 </Button>
               </div>
@@ -395,7 +395,7 @@ const BulkScrapingManager = () => {
                         </span>
                       </div>
                     </div>
-                    <Button onClick={() => runBulkScraping(config.id)}>
+                    <Button onClick={() => runBulkScraping(config.id)} className="bg-white hover:bg-[#008000] text-[#008000] hover:text-white border border-[#008000] transition-colors duration-200">
                       <Play className="w-4 h-4 mr-2" />
                       Run Scraping
                     </Button>

@@ -278,20 +278,20 @@ const UserRoleManager = () => {
                 filteredUserDetails.map((userDetail) => (
                   <div key={userDetail.user_id} className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50">
                     <div className="flex items-center gap-3">
-                      <Users className="w-5 h-5 text-gray-400" />
+                      <Users className="w-5 h-5 text-[#008000]" />
                       <div>
                         <p className="font-medium">{userDetail.full_name || 'Unnamed User'}</p>
                         <div className="flex items-center gap-4 text-sm text-gray-500">
                           <span className="flex items-center gap-1">
-                            <Mail className="w-3 h-3" />
+                            <Mail className="w-3 h-3 text-[#008000]" />
                             {userDetail.email}
                           </span>
                           <span className="flex items-center gap-1">
-                            <Crown className="w-3 h-3" />
+                            <Crown className="w-3 h-3 text-[#008000]" />
                             {userDetail.subscription_tier}
                           </span>
                           <span className="flex items-center gap-1">
-                            <Calendar className="w-3 h-3" />
+                            <Calendar className="w-3 h-3 text-[#008000]" />
                             Joined {new Date(userDetail.created_at).toLocaleDateString()}
                           </span>
                         </div>
@@ -302,6 +302,7 @@ const UserRoleManager = () => {
                         {userDetail.is_active ? 'Active' : 'Inactive'}
                       </Badge>
                       <Button
+                        className="bg-[#008000] hover:bg-[#218c1b] text-white"
                         variant="outline"
                         size="sm"
                         onClick={() => {
@@ -349,7 +350,9 @@ const UserRoleManager = () => {
                   </SelectContent>
                 </Select>
                 
-                <Button onClick={assignRole} disabled={assigning || !selectedUser}>
+                <Button
+                  className="bg-[#008000] hover:bg-[#218c1b] text-white"
+                  onClick={assignRole} disabled={assigning || !selectedUser}>
                   {assigning ? 'Assigning...' : 'Assign Role'}
                 </Button>
               </div>
@@ -374,12 +377,12 @@ const UserRoleManager = () => {
                 filteredRoles.map((roleEntry) => (
                   <div key={roleEntry.id} className="flex items-center justify-between p-4 border rounded-lg">
                     <div className="flex items-center gap-3">
-                      <Users className="w-5 h-5 text-gray-400" />
+                      <Users className="w-5 h-5 text-[#008000]" />
                       <div>
                         <p className="font-medium">{roleEntry.full_name || 'Unnamed User'}</p>
                         <div className="flex items-center gap-4 text-sm text-gray-500">
                           <span className="flex items-center gap-1">
-                            <Mail className="w-3 h-3" />
+                            <Mail className="w-3 h-3 text-[#008000]" />
                             {roleEntry.email}
                           </span>
                           <span>
@@ -393,6 +396,7 @@ const UserRoleManager = () => {
                         {roleEntry.role.replace('_', ' ')}
                       </Badge>
                       <Button
+                        className="bg-[#008000] hover:bg-[#218c1b] text-white"
                         variant="outline"
                         size="sm"
                         onClick={() => {
@@ -403,6 +407,7 @@ const UserRoleManager = () => {
                         Copy Email
                       </Button>
                       <Button
+                        className="bg-[#008000] hover:bg-[#218c1b] text-white"
                         variant="outline"
                         size="sm"
                         onClick={() => removeRole(roleEntry.id, roleEntry.user_id, roleEntry.role)}

@@ -1,7 +1,7 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Switch } from '@/components/ui/switch';
 
 const PlatformSettings = () => {
   return (
@@ -23,7 +23,9 @@ const PlatformSettings = () => {
             <label className="text-sm font-medium">Pro Subscription Price (NGN)</label>
             <Input type="number" defaultValue="2500" />
           </div>
-          <Button>Save Settings</Button>
+          <Button className="bg-[#008000] hover:bg-[#218c1b] text-white transition-colors duration-200">
+            Save Settings
+          </Button>
         </div>
       </CardContent>
     </Card>

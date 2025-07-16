@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -122,8 +121,11 @@ const OpportunityManager = () => {
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle>Manage Opportunities</CardTitle>
-            <Button onClick={() => setShowCreateForm(true)}>
-              <Plus className="h-4 w-4 mr-2" />
+            <Button 
+              className="bg-[#008000] hover:bg-[#218c1b] text-white"
+              onClick={() => setShowCreateForm(true)}
+            >
+              <Plus className="h-4 w-4 mr-2 text-[#008000]" />
               Add Opportunity
             </Button>
           </div>
@@ -136,10 +138,16 @@ const OpportunityManager = () => {
                   <h3 className="font-semibold">{opportunity.title}</h3>
                   <p className="text-sm text-gray-600">{opportunity.organization}</p>
                   <div className="flex items-center gap-4 mt-2">
-                    <Badge variant={opportunity.status === 'approved' ? 'default' : 'secondary'}>
+                    <Badge 
+                      className="text-[#008000] border-[#008000]"
+                      variant={opportunity.status === 'approved' ? 'default' : 'secondary'}
+                    >
                       {opportunity.status}
                     </Badge>
-                    <Badge variant={opportunity.is_published ? 'default' : 'outline'}>
+                    <Badge 
+                      className="text-[#008000] border-[#008000]"
+                      variant={opportunity.is_published ? 'default' : 'outline'}
+                    >
                       {opportunity.is_published ? 'Published' : 'Draft'}
                     </Badge>
                     <span className="text-sm text-gray-500">
@@ -149,27 +157,31 @@ const OpportunityManager = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Button 
+                    className="bg-white hover:bg-[#008000] text-[#008000] border border-[#008000] transition-colors duration-200"
                     variant="outline" 
                     size="sm"
                     onClick={() => viewOpportunity(opportunity.id)}
                   >
-                    <Eye className="h-4 w-4" />
+                    <Eye className="h-4 w-4 text-[#008000]" />
                   </Button>
                   <Button 
+                    className="bg-white hover:bg-[#008000] text-[#008000] border border-[#008000] transition-colors duration-200"
                     variant="outline" 
                     size="sm"
                     onClick={() => togglePublishStatus(opportunity.id, opportunity.is_published)}
                   >
-                    <Upload className="h-4 w-4" />
+                    <Upload className="h-4 w-4 text-[#008000]" />
                   </Button>
                   <Button 
+                    className="bg-white hover:bg-[#008000] text-[#008000] border border-[#008000] transition-colors duration-200"
                     variant="outline" 
                     size="sm"
                     onClick={() => setEditingOpportunity(opportunity)}
                   >
-                    <Edit className="h-4 w-4" />
+                    <Edit className="h-4 w-4 text-[#008000]" />
                   </Button>
                   <Button 
+                    className="bg-[#c62828] hover:bg-[#e53935] text-white"
                     variant="destructive" 
                     size="sm"
                     onClick={() => deleteOpportunity(opportunity.id)}
