@@ -198,17 +198,17 @@ export const VoiceInterface: React.FC<VoiceInterfaceProps> = ({
               variant="ghost"
               size="sm"
               onClick={toggleVoiceEnabled}
-              className={`${isVoiceEnabled ? 'text-green-600' : 'text-gray-400'}`}
+              className={`${isVoiceEnabled ? 'text-[#008000]' : 'text-gray-400'}`}
             >
-              {isVoiceEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+              {isVoiceEnabled ? <Volume2 className="w-4 h-4" style={{ color: '#008000' }} /> : <VolumeX className="w-4 h-4" />}
             </Button>
             <Button
               variant="ghost"
               size="sm"
               onClick={toggleConnection}
-              className={`${isConnected ? 'text-green-600' : 'text-gray-400'}`}
+              className={`${isConnected ? 'text-[#008000]' : 'text-gray-400'}`}
             >
-              {isConnected ? <Phone className="w-4 h-4" /> : <PhoneOff className="w-4 h-4" />}
+              {isConnected ? <Phone className="w-4 h-4" style={{ color: '#008000' }} /> : <PhoneOff className="w-4 h-4" />}
             </Button>
           </div>
         </div>
@@ -220,14 +220,16 @@ export const VoiceInterface: React.FC<VoiceInterfaceProps> = ({
             className={`flex-1 ${
               isListening 
                 ? 'bg-red-500 hover:bg-red-600 text-white'
-                : 'bg-[#17cfcf] hover:bg-[#17cfcf]/90 text-white'
+                : 'bg-[#008000] hover:bg-[#008000]/90 text-white'
             }`}
           >
             <motion.div
               animate={isListening ? { scale: [1, 1.1, 1] } : { scale: 1 }}
               transition={{ repeat: isListening ? Infinity : 0, duration: 1 }}
             >
-              {isListening ? <MicOff className="w-4 h-4 mr-2" /> : <Mic className="w-4 h-4 mr-2" />}
+              {isListening 
+                ? <MicOff className="w-4 h-4 mr-2" style={{ color: '#008000' }} /> 
+                : <Mic className="w-4 h-4 mr-2" style={{ color: '#008000' }} />}
             </motion.div>
             {isListening ? 'Stop Listening' : 'Start Listening'}
           </Button>

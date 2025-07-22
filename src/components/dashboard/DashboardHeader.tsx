@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { User, LogOut, Search, Settings, Shield, Sparkles } from 'lucide-react';
@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { supabase } from '@/integrations/supabase/client';
 import SearchBar from '@/components/SearchBar';
 
 interface DashboardHeaderProps {
@@ -22,6 +23,22 @@ interface DashboardHeaderProps {
 }
 
 const DashboardHeader = ({ user, isAdmin, adminCheckComplete, onResultSelect, onSignOut }: DashboardHeaderProps) => {
+  const [isStaffAdmin, setIsStaffAdmin] = useState(false);
+
+  useEffect(() => {
+    const checkStaffAdminRole = async () => {
+      if (user?.id) {
+        const { data, error } = await supabase
+          .from('user_roles')
+          .select('role')
+          .eq('user_id', user.id)
+          .eq('role', 'staff_admin')
+          .maybeSingle();
+        setIsStaffAdmin(!!data);
+      }
+    };
+    checkStaffAdminRole();
+  }, [user]);
   const navigate = useNavigate();
 
   const getUserInitials = (user: any) => {
@@ -81,6 +98,14 @@ const DashboardHeader = ({ user, isAdmin, adminCheckComplete, onResultSelect, on
               <Sparkles className="h-4 w-4 mr-2" />
               AI Assistant
             </Button>
+            {isStaffAdmin && (
+              <Button
+                asChild
+                className="bg-[#008000] text-white px-4 py-2 font-semibold rounded-lg shadow hover:bg-[#008000]/90 transition-all duration-200"
+              >
+                <Link to="/staff-admin">Staff Admin Dashboard</Link>
+              </Button>
+            )}
           </div>
 
           {/* User Menu */}

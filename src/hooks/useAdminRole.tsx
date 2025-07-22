@@ -1,24 +1,37 @@
 
+
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/hooks/useAuth';
+import { supabase } from '@/integrations/supabase/client';
 
 export const useAdminRole = () => {
   const { user } = useAuth();
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isStaffAdmin, setIsStaffAdmin] = useState(false);
   const [adminCheckComplete, setAdminCheckComplete] = useState(false);
 
   useEffect(() => {
-    if (user) {
-      // Simple hardcoded admin check
-      const isAdminUser = user.email === 'admin@admin.com' || user.email === 'sammysaasproject@gmail.com';
-      console.log('Admin check for:', user.email, 'Is admin:', isAdminUser);
-      setIsAdmin(isAdminUser);
+    const checkRoles = async () => {
+      if (user?.id) {
+        const { data, error } = await supabase
+          .from('user_roles')
+          .select('role')
+          .eq('user_id', user.id);
+        if (error) {
+          setIsAdmin(false);
+          setIsStaffAdmin(false);
+        } else {
+          setIsAdmin(data?.some((r: any) => r.role === 'admin'));
+          setIsStaffAdmin(data?.some((r: any) => r.role === 'staff_admin'));
+        }
+      } else {
+        setIsAdmin(false);
+        setIsStaffAdmin(false);
+      }
       setAdminCheckComplete(true);
-    } else {
-      setIsAdmin(false);
-      setAdminCheckComplete(true);
-    }
+    };
+    checkRoles();
   }, [user]);
 
-  return { isAdmin, adminCheckComplete };
+  return { isAdmin, isStaffAdmin, adminCheckComplete };
 };

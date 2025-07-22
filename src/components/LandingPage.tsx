@@ -46,38 +46,43 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Enhanced Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-white via-[#e6f5ec]/20 to-white overflow-hidden">
-        {/* Enhanced Background Pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-[#008000] rounded-full blur-3xl opacity-10 animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#e6f5ec] rounded-full blur-3xl opacity-10 animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-[#008000] to-[#008000]/50 rounded-full blur-2xl opacity-5 animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-[#e6f5ec] rounded-full blur-3xl opacity-5 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-        </div>
-
-        {/* Enhanced Header */}
-        <motion.header
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 bg-white/90 backdrop-blur-xl border-b border-[#e6f5ec]/40 sticky top-0 shadow-lg shadow-black/5"
-        >
-          <div className="max-w-7xl mx-auto px-6 py-4">
-            <div className="flex items-center justify-between">
-              <motion.div
-                className="flex items-center space-x-3"
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="w-10 h-10 flex items-center justify-center rounded-xl">
-                  <img className='h-10 w-10 rounded-full' src="/assets/img/logo.jpg" alt="" />
-                  {/* <Briefcase className="w-6 h-6 text-white" /> */}
-                </div>
+      {/* Enhanced Header */}
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="z-20 bg-white/90 backdrop-blur-xl border-b border-[#e6f5ec]/40 sticky top-0 shadow-lg shadow-black/5"
+      >
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <motion.div
+              className="flex items-center space-x-3"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="w-10 h-10 flex items-center justify-center rounded-xl">
+                <img className='h-10 w-10 rounded-full' src="/assets/img/logo.jpg" alt="" />
+              </div>
+              <div className="flex flex-col justify-center">
                 <span className="text-2xl font-bold text-[#384040]">PrimeChances</span>
-              </motion.div>
+                <span className="text-xs text-gray-500">Find your next opportunity</span>
+              </div>
+            </motion.div>
 
-              <nav className="hidden md:flex space-x-8">
-                {['Features', 'Pricing', 'About', 'Testimonials', 'Contact'].map((item) => (
+            <nav className="hidden md:flex space-x-8">
+              {['Features', 'Pricing', 'About', 'Testimonials', 'Contact'].map((item) => {
+                if (item === 'About') {
+                  return (
+                    <motion.a
+                      key={item}
+                      href="/about"
+                      className="text-[#384040] hover:text-[#008000] transition-colors font-medium"
+                      whileHover={{ y: -2 }}
+                    >
+                      {item}
+                    </motion.a>
+                  );
+                }
+                return (
                   <motion.a
                     key={item}
                     href={`#${item.toLowerCase()}`}
@@ -86,34 +91,48 @@ const LandingPage = () => {
                   >
                     {item}
                   </motion.a>
-                ))}
-              </nav>
+                );
+              })}
+            </nav>
 
-              <div className="flex items-center space-x-4">
-                {user ? (
-                  <Link to="/dashboard">
+            <div className="flex items-center space-x-4">
+              {user ? (
+                <Link to="/dashboard">
+                  <Button className="bg-[#90EE90] hover:bg-[#32CD32] text-white rounded-xl px-6 shadow-lg hover:shadow-[#90EE90]/30 transition-all duration-300">
+                    Dashboard
+                  </Button>
+                </Link>
+              ) : (
+                <>
+                  {/* <Link to="/auth">
+                    <Button variant="ghost" className="text-[#384040] hover:text-[#90EE90] hover:bg-[#e6f5ec]/30">
+                      Sign In
+                    </Button>
+                  </Link> */}
+                  <Link to="/auth">
                     <Button className="bg-[#90EE90] hover:bg-[#32CD32] text-white rounded-xl px-6 shadow-lg hover:shadow-[#90EE90]/30 transition-all duration-300">
-                      Dashboard
+                      Get Started
                     </Button>
                   </Link>
-                ) : (
-                  <>
-                    {/* <Link to="/auth">
-                      <Button variant="ghost" className="text-[#384040] hover:text-[#90EE90] hover:bg-[#e6f5ec]/30">
-                        Sign In
-                      </Button>
-                    </Link> */}
-                    <Link to="/auth">
-                      <Button className="bg-[#90EE90] hover:bg-[#32CD32] text-white rounded-xl px-6 shadow-lg hover:shadow-[#90EE90]/30 transition-all duration-300">
-                        Get Started
-                      </Button>
-                    </Link>
-                  </>
-                )}
-              </div>
+                </>
+              )}
             </div>
           </div>
-        </motion.header>
+        </div>
+      </motion.header>
+
+      {/* Add padding to prevent content from going under the sticky header */}
+      <div className="pt-20"></div>
+
+      {/* Enhanced Hero Section */}
+      <section className="relative min-h-screen bg-gradient-to-br from-white via-[#e6f5ec]/20 to-white overflow-hidden pt-20 z-10">
+        {/* Enhanced Background Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-[#008000] rounded-full blur-3xl opacity-10 animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#e6f5ec] rounded-full blur-3xl opacity-10 animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-[#008000] to-[#008000]/50 rounded-full blur-2xl opacity-5 animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-[#e6f5ec] rounded-full blur-3xl opacity-5 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+        </div>
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-32">
@@ -220,7 +239,7 @@ const LandingPage = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 bg-gradient-to-b from-white to-[#e6f5ec]/10">
+      <section id="features" className="py-24 bg-gradient-to-b from-white to-[#e6f5ec]/10 pt-20 z-10">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -260,7 +279,7 @@ const LandingPage = () => {
       </section>
 
       {/* Premium Pro Features Section with Hover Effects */}
-      <section className="py-32 bg-gradient-to-b from-[#e6f5ec]/10 via-white to-[#e6f5ec]/5 relative overflow-hidden">
+      <section className="py-32 bg-gradient-to-b from-[#e6f5ec]/10 via-white to-[#e6f5ec]/5 relative overflow-hidden pt-20 z-10">
         {/* Enhanced Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-[#90EE90] rounded-full blur-3xl opacity-5 animate-pulse"></div>
@@ -313,12 +332,12 @@ const LandingPage = () => {
       <LandingOpportunities />
 
       {/* Subscription Section */}
-      <section id="pricing">
+      <section id="pricing" className="pt-20 z-10">
         <LandingSubscription />
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-24 bg-gradient-to-b from-white to-[#e6f5ec]/10">
+      <section id="testimonials" className="py-24 bg-gradient-to-b from-white to-[#e6f5ec]/10 z-10">
         <Testimonials />
       </section>
 

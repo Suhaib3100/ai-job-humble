@@ -68,7 +68,7 @@ export const DocumentGeneratorModal: React.FC<DocumentGeneratorModalProps> = ({
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <FileText className="w-5 h-5" />
+            <FileText className="w-5 h-5" style={{ color: '#008000' }} />
             AI Document Generator
             {opportunityTitle && (
               <span className="text-sm font-normal text-gray-600">
@@ -133,15 +133,15 @@ export const DocumentGeneratorModal: React.FC<DocumentGeneratorModalProps> = ({
               </ul>
             </div>
 
-            <Button onClick={handleGenerate} disabled={loading} className="w-full">
+            <Button onClick={handleGenerate} disabled={loading} className="w-full bg-[#008000] hover:bg-[#008000]/90 text-white">
               {loading ? (
                 <>
-                  <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2" />
+                  <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2" style={{ borderColor: '#008000', borderTopColor: 'transparent' }} />
                   Generating...
                 </>
               ) : (
                 <>
-                  <FileText className="w-4 h-4 mr-2" />
+                  <FileText className="w-4 h-4 mr-2" style={{ color: '#008000' }} />
                   Generate Document
                 </>
               )}
@@ -153,11 +153,11 @@ export const DocumentGeneratorModal: React.FC<DocumentGeneratorModalProps> = ({
               <h3 className="font-semibold">{generatedDocument.title}</h3>
               <div className="flex gap-2">
                 <Button variant="outline" size="sm" onClick={handleCopy}>
-                  <Copy className="w-4 h-4 mr-2" />
+                  <Copy className="w-4 h-4 mr-2" style={{ color: '#008000' }} />
                   Copy
                 </Button>
                 <Button variant="outline" size="sm" onClick={handleDownload}>
-                  <Download className="w-4 h-4 mr-2" />
+                  <Download className="w-4 h-4 mr-2" style={{ color: '#008000' }} />
                   Download
                 </Button>
               </div>

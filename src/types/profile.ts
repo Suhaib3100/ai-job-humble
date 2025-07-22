@@ -8,6 +8,7 @@ export interface UserProfile {
   years_of_experience: number;
   email_notifications: boolean;
   push_notifications: boolean;
+  cookie_accepted?: boolean;
 }
 
 export interface Category {

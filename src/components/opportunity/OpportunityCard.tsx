@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -132,30 +131,31 @@ ${opportunity.application_url ? `Apply at: ${opportunity.application_url}` : ''}
                 variant="ghost"
                 size="sm"
                 onClick={handleShare}
-                className="text-gray-500 hover:text-blue-600"
+                className="text-[#008000] hover:text-[#008000]/80"
                 title="Share opportunity"
               >
-                <Share className="w-4 h-4" />
+                <Share className="w-4 h-4" style={{ color: '#008000' }} />
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleCopyDetails}
-                className="text-gray-500 hover:text-green-600"
+                className="text-[#008000] hover:text-[#008000]/80"
                 title="Copy details"
               >
-                <Copy className="w-4 h-4" />
+                <Copy className="w-4 h-4" style={{ color: '#008000' }} />
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleBookmark}
-                className="text-gray-500 hover:text-blue-600"
+                className="text-[#008000] hover:text-[#008000]/80"
+                title={isBookmarked ? "Unsave" : "Save"}
               >
                 {isBookmarked ? (
-                  <BookmarkCheck className="w-4 h-4" />
+                  <BookmarkCheck className="w-4 h-4" style={{ color: '#008000' }} />
                 ) : (
-                  <Bookmark className="w-4 h-4" />
+                  <Bookmark className="w-4 h-4" style={{ color: '#008000' }} />
                 )}
               </Button>
             </div>
@@ -171,23 +171,21 @@ ${opportunity.application_url ? `Apply at: ${opportunity.application_url}` : ''}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4 text-sm text-gray-600">
             {opportunity.location && (
               <div className="flex items-center gap-1">
-                <MapPin className="w-4 h-4" />
+                <MapPin className="w-4 h-4" style={{ color: '#008000' }} />
                 <span className="truncate">
                   {opportunity.is_remote ? 'Remote' : opportunity.location}
                 </span>
               </div>
             )}
-            
             {opportunity.application_deadline && (
               <div className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
+                <Calendar className="w-4 h-4" style={{ color: '#008000' }} />
                 <span>Due {format(new Date(opportunity.application_deadline), 'MMM dd')}</span>
               </div>
             )}
-            
             {opportunity.salary_range && (
               <div className="flex items-center gap-1">
-                <DollarSign className="w-4 h-4" />
+                <DollarSign className="w-4 h-4" style={{ color: '#008000' }} />
                 <span className="truncate">{opportunity.salary_range}</span>
               </div>
             )}
@@ -210,28 +208,14 @@ ${opportunity.application_url ? `Apply at: ${opportunity.application_url}` : ''}
           )}
 
           <div className="flex gap-2">
-            <Button onClick={handleViewDetails} className="flex-1" size="sm">
+            <Button onClick={handleViewDetails} className="flex-1 bg-[#008000] text-white hover:bg-[#008000]/90" size="sm">
               View Details
-            </Button>
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={handleGenerateDocument}
-              className="flex items-center gap-1"
-            >
-              <FileText className="w-4 h-4" />
-              AI Docs
             </Button>
           </div>
         </CardContent>
       </Card>
 
-      <DocumentGeneratorModal
-        isOpen={showDocumentGenerator}
-        onClose={() => setShowDocumentGenerator(false)}
-        opportunityId={opportunity.id}
-        opportunityTitle={opportunity.title}
-      />
+      {/* DocumentGeneratorModal removed for published opportunities */}
     </>
   );
 };

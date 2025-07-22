@@ -17,6 +17,7 @@ interface ProfileData {
   education_level?: string;
   field_of_study?: string;
   years_of_experience?: number;
+  cookie_accepted?: boolean;
 }
 
 const ProfileForm = () => {
@@ -116,6 +117,14 @@ const ProfileForm = () => {
                 placeholder="Enter your country"
               />
             </div>
+          </div>
+
+          {/* Cookie Preference Display */}
+          <div className="flex items-center gap-2 mt-2">
+            <Label>Cookie Preference:</Label>
+            <span className={`px-2 py-1 rounded text-xs font-semibold ${profileData.cookie_accepted ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+              {profileData.cookie_accepted ? 'Accepted' : 'Rejected'}
+            </span>
           </div>
 
           <div>

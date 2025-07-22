@@ -9,7 +9,7 @@ interface AdminRouteProps {
 
 const AdminRoute = ({ children }: AdminRouteProps) => {
   const { user, loading } = useAuth();
-  const { isAdmin, adminCheckComplete } = useAdminRole();
+  const { isAdmin, isStaffAdmin, adminCheckComplete } = useAdminRole();
 
   // Show loading while checking
   if (loading || !adminCheckComplete) {
@@ -28,8 +28,8 @@ const AdminRoute = ({ children }: AdminRouteProps) => {
     return <Navigate to="/auth" replace />;
   }
 
-  // If not admin, show access denied instead of redirecting
-  if (!isAdmin) {
+  // If not admin or staff_admin, show access denied instead of redirecting
+  if (!isAdmin && !isStaffAdmin) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center max-w-md mx-auto p-8">

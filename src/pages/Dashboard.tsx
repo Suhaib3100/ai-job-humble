@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/hooks/useAuth';
 import { useAdminRole } from '@/hooks/useAdminRole';
@@ -28,8 +28,10 @@ import AddOpportunityButton from '@/components/profile/AddOpportunityButton';
 import AIChatWidget from '@/components/ai/AIChatWidget';
 import UpgradePrompt from '@/components/subscription/UpgradePrompt';
 import { AIRecommendationsDashboard } from '@/components/ai/AIRecommendationsDashboard';
+import { DocumentGeneratorModal } from '@/components/ai/DocumentGeneratorModal';
 
 const Dashboard = () => {
+  const [showDocumentGenerator, setShowDocumentGenerator] = useState(false);
   const { user, signOut } = useAuth();
   const { isAdmin, adminCheckComplete } = useAdminRole();
   const navigate = useNavigate();
@@ -187,16 +189,29 @@ const Dashboard = () => {
         >
           <WelcomeSection user={user} />
           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            {/* ATS CV Maker button for subscribed users, else redirect to subscription */}
             <Button
-              onClick={() => setShowAIRecommendations(true)}
               className="bg-[#008000] hover:bg-[#218c1b] text-white shadow-lg w-full sm:w-auto"
+              onClick={() => {
+                if (["pro", "premium"].includes(tier)) {
+                  setShowDocumentGenerator(true);
+                } else {
+                  window.location.href = '/subscription';
+                }
+              }}
             >
               <Sparkles className="w-4 h-4 mr-2" />
-              <span className="hidden sm:inline">AI Recommendations</span>
-              <span className="sm:hidden">AI Assistant</span>
+              <span>ATS CV Maker</span>
             </Button>
-            <AddOpportunityButton />
           </div>
+          {showDocumentGenerator && ["pro", "premium"].includes(tier) && (
+            <DocumentGeneratorModal
+              isOpen={showDocumentGenerator}
+              onClose={() => setShowDocumentGenerator(false)}
+              opportunityId={user?.id || ""}
+              opportunityTitle={user?.user_metadata?.full_name || "ATS CV"}
+            />
+          )}
         </motion.div>
 
         <motion.div

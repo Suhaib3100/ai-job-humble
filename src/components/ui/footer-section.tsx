@@ -66,6 +66,9 @@ function FooterDemo() {
               <a href="/ai-assistant" className="block transition-colors hover:text-primary">
                 AI Assistant
               </a>
+              <a href="/about" className="block transition-colors hover:text-primary">
+                About
+              </a>
               <a href="/auth" className="block transition-colors hover:text-primary">
                 Sign In
               </a>
@@ -74,10 +77,8 @@ function FooterDemo() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
             <address className="space-y-2 text-sm not-italic">
-              <p>123 Opportunity Street</p>
               <p>No.1 close 14. Lekki Atlantic Gardens, Lekki -Epe Express Way, Lagos</p>
-              <p>Phone: (555) 123-4567</p>
-              <p>Email: hello@PrimeChances.com</p>
+              <p>Email: support@PrimeChances.com</p>
             </address>
           </div>
           <div className="relative">
@@ -155,13 +156,13 @@ function FooterDemo() {
             © {(new Date()).getFullYear()} PrimeChances. All rights reserved.
           </p>
           <nav className="flex gap-4 text-sm">
-            <a href="#" className="transition-colors hover:text-primary">
+            <a href="/privacy-policy" className="transition-colors hover:text-primary">
               Privacy Policy
             </a>
-            <a href="#" className="transition-colors hover:text-primary">
+            <a href="/terms-of-service" className="transition-colors hover:text-primary">
               Terms of Service
             </a>
-            <a href="#" className="transition-colors hover:text-primary">
+            <a href="/cookie-settings" className="transition-colors hover:text-primary">
               Cookie Settings
             </a>
           </nav>
